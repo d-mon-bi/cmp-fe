@@ -1,0 +1,83 @@
+@import url(https://fonts.googleapis.com/css?family=Arimo);
+@import url(https://fonts.googleapis.com/css?family=Raleway:300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+* {
+	font-family: 'Raleway', sans-serif; font-size: 14px;
+}
+.search{ float: left; width: 55%; left: 25px; position:fixed;}
+.breadcrumbs{ float: left; width: 15%; }
+.breadcrumbs ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 95%;
+    background-color: #f1f1f1;
+}
+
+.breadcrumbs li a {
+    display: block;
+    color: #000;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+.breadcrumbs li a:hover {
+    background-color: #555;
+    color: white;
+}
+.breadcrumbs .active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.searchresults{ float: right;  width: 70% }
+.searchresults ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+}
+
+.searchresults li a {
+    display: block;
+    color: #000;	
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+.searchresults li a:hover {
+    background-color: #555;
+    color: white;
+}
+.searchresults .active {
+    background-color: #4CAF50;
+    color: white;
+} 
+
+.clickbox{ display: inline-block; width: 15%; }
+.clickbox ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 95%;
+    background-color: #f1f1f1;
+}
+
+.clickbox li a {
+    display: block;
+    color: #000;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+.clickbox li a:hover {
+    background-color: #555;
+    color: white;
+}
+.clickbox .active {
+    background-color: #4CAF50;
+    color: white;
+}
