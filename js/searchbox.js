@@ -97,10 +97,13 @@ function searchProfession(profession)
 	})
 	.done (function ( results) {
 		var map = document.getElementById('map').gMap;
+		bounds = new google.maps.LatLngBounds();
 		clearMarkers();
 		$("#searchresults-list").empty();
 		$.each(results, function(i, professional){
-			$("#searchresults-list").append( '<li class="search-item" id="sr-' + professional._id + '"> <a>' +professional.name + " " + professional.lastName+'</a></li>');
+			$("#searchresults-list").append( '<li class="search-item" id="sr-' + professional._id + '" onmouseout="setMarkersAnimation(\'sr-' + professional._id + '\', false)" onmouseover="setMarkersAnimation(\'sr-' + professional._id + '\', true)" :> <a>' +professional.name + " " + professional.lastName+'</a></li>');
+			professionalItem = document.getElementById('sr-'+professional._id);
+			professionalMarkers = []
 			$.each(professional.offices, function(j, office){
 				
 				var infowindow = new google.maps.InfoWindow({
@@ -118,10 +121,33 @@ function searchProfession(profession)
 				marker.addListener('mouseout', function() {
 					infowindow.close();
 				});
+				bounds.extend(marker.getPosition());
+				professionalMarkers.push(marker);
 				markers.push(marker);
 			});
+			if (professionalMarkers.length >0) {professionalItem.locationMarkers = professionalMarkers;}
+			
 		});
+		if (markers.length > 0){map.fitBounds(bounds);}
 	});
+}
+
+function setMarkersAnimation(id, animate)
+{
+	professionalItem = document.getElementById(id);
+	if (professionalItem.locationMarkers)
+	{
+		var map = document.getElementById('map').gMap;
+		$.each(professionalItem.locationMarkers, function(i, marker){
+			if (animate){
+				marker.setAnimation(google.maps.Animation.BOUNCE);
+			}
+			else 
+			{
+				marker.setAnimation(null);
+			}
+		});
+	}
 }
 
 function formatOffice(professional, office)
