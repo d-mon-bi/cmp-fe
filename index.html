@@ -2,20 +2,35 @@
 <html ng-app>
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/main.css"> </link>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 		<script src="js/searchbox.js"></script>
 	</head>
 	<body>
+		<div id="home" class="home" >
+			<div id="homeMenu" class="homeMenu">
+				<table id="homeMenuTable">
+					<tr>
+						<td><a href onclick="goSearch('Salud');"><img src="img/medicine.png"></img></a></td>
+						<td><a href onclick="goSearch('Leyes');"><img src="img/law.png"></img></a></td>
+						<td><a href onclick="goSearch('Hogar');"><img src="img/handyman.png"></img></a></td></tr>
+					<!-- tr>
+						<td><a href onclick="goSearch('Salud');"><img src="img/medicine.png"></img></a></td>
+						<td><a href onclick="goSearch('Leyes');"><img src="img/law.png"></img></a></td>
+						<td><a href onclick="goSearch('Servicios');"><img src="img/handyman.png"></img></a></td></tr -->
+				</table>
+			</div>
+		</div>
 		<div id="main">
 		<div id="map" class="map" style=>
 				
 		</div>
-		<div id="home" class="home" style="display:none">
-		</div>
+		
 		<div id="search" class="search">
 			<div id="breadcrumbs" class="breadcrumbs">
-				<h1><p><a id="searchUIToggle" href class="generalSearchUIa" onclick="toggleSearchUI()"><<</a></p></h1>
+				<h1><p><a id="searchUIToggle" href class="generalSearchUIa" onclick="toggleSearchUI()"><i class="material-icons">menu</i></a>
+				<a id="goHome" href class="generalSearchUIa" onclick="goHome()"><i class="material-icons">home</i></a></p></h1>
 				<div id="breadcrumbs-box">
 					<ul id="breadcrumb-list" class="breadcrumb-list"></ul>
 				</div>
@@ -34,10 +49,27 @@
 				  function initMap() {
 					var mapDiv = document.getElementById('map');
 					var map = new google.maps.Map(mapDiv, {
-					  center: {lat: 10.004658, lng: -84.154967},
-					  zoom: 15
+					  center: {lat: 9.933975, lng:  -84.079083},
+					  zoom: 15,
+					  mapTypeControl: false
 					});
 					mapDiv.gMap = map;
+					if(navigator.geolocation) {
+						browserSupportFlag = true;
+						navigator.geolocation.getCurrentPosition(function(position) {
+						  initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+						  map.setCenter(initialLocation);
+						}, function() {
+						  handleNoGeolocation(browserSupportFlag);
+						});
+					 }
+					  // Browser doesn't support Geolocation
+					 else {
+						browserSupportFlag = false;
+						handleNoGeolocation(browserSupportFlag);
+					}
+					function handleNoGeolocation(errorFlag) {
+					 }
 				  }
 				</script>
 				<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
