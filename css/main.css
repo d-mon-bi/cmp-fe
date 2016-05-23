@@ -4,14 +4,24 @@
 * {
 	font-family: 'Raleway', sans-serif; font-size: 14px;
 }
-.search{ float: left; width: 55%; left: 25px; position:fixed;}
+html, body {
+    height: 100%; 
+    padding: 0;
+    margin: 0;
+}
+body { background-color: #F8F8F8;}
+.map{ width: 100%; height: 1000px;}
+.search{ float: left; width: 55%; left: 25px;  top: 25px; position:fixed; background-color : #ffffff}
+.search h1{
+	/* background-color : #E0E0E0;*/
+}
 .breadcrumbs{ float: left; width: 15%; }
 .breadcrumbs ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     width: 95%;
-    background-color: #f1f1f1;
+    /*background-color: #f1f1f1;*/
 }
 
 .breadcrumbs li a {
@@ -36,7 +46,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: #f1f1f1;
+    /*background-color: #f1f1f1;*/
 }
 
 .searchresults li a {
@@ -62,7 +72,7 @@
     margin: 0;
     padding: 0;
     width: 95%;
-    background-color: #f1f1f1;
+   /* background-color: #f1f1f1;*/
 }
 
 .clickbox li a {

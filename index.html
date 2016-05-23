@@ -7,23 +7,40 @@
 		<script src="js/searchbox.js"></script>
 	</head>
 	<body>
-		<div id="home" class="home">
+		<div id="main">
+		<div id="map" class="map" style=>
+				
+		</div>
+		<div id="home" class="home" style="display:none">
 		</div>
 		<div id="search" class="search">
 			<div id="breadcrumbs" class="breadcrumbs">
-				<p><a id="searchUIToggle" href class="generalSearchUIa" onclick="toggleSearchUI()"><<</a></p>
+				<h1><p><a id="searchUIToggle" href class="generalSearchUIa" onclick="toggleSearchUI()"><<</a></p></h1>
 				<div id="breadcrumbs-box">
 					<ul id="breadcrumb-list" class="breadcrumb-list"></ul>
 				</div>
 			</div>
 			<div id="clickbox" class="clickbox">
-				<p>Subcategor&iacute;as</p>
+				<h1><p>Subcategor&iacute;as</p></h1>
 				<ul id="clickbox-list" class="clickbox-list"></ul>
 			</div>		
 			<div id="searchresults" class="searchresults">
-				<p>Profesionales</p>
+				<h1><p>Profesionales</p></h1>
 				<ul id="searchresults-list" class="searchresults-list"></ul>
 			</div>
 		</div>
+		</div>
+		<script>
+				  function initMap() {
+					var mapDiv = document.getElementById('map');
+					var map = new google.maps.Map(mapDiv, {
+					  center: {lat: 10.004658, lng: -84.154967},
+					  zoom: 15
+					});
+					mapDiv.gMap = map;
+				  }
+				</script>
+				<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+        async defer></script>
 	</body>
 </html>
