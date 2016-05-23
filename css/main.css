@@ -28,7 +28,7 @@ body { background-color: #F8F8F8;}
 	width:600px;
 	margin: auto;
 	margin-top: 10%;
-	background-color:#ffffff;
+	background-color:transparent;
  
 }
 
@@ -37,7 +37,17 @@ table#homeMenuTable {
     margin-left:auto; 
     margin-right:auto; 
     width:100px;
+	background-color:transparent;
   }
+  
+ .homeMenuTable td {
+	border: 2px solid #000000;
+	
+ }
+ 
+ .homeMenuTable tr, th, img {
+	background-color:transparent;
+ }
  
 .map{ width: 100%; height: 900px; overflow: hidden; z-index:0;}
 .search{ float: left; width: 55%; left: 25px;  top: 25px; position:fixed; background-color : #ffffff}
