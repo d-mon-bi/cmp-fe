@@ -1,5 +1,6 @@
 apiURL  = "http://52.40.59.4:3000/"
 var markers = [];
+var browserSupportFlag = new Boolean();
 function toggleSearchUI()
 {
 	isVisible = $("#clickbox").is(':visible');
@@ -8,7 +9,6 @@ function toggleSearchUI()
 		$("#clickbox").hide();
 		$("#searchresults").hide();
 		$("#breadcrumbs-box").hide();
-		$("#searchUIToggle").text(">>")
 		$("#search").width(25);
 	}
 	if (!isVisible)
@@ -16,12 +16,32 @@ function toggleSearchUI()
 		$("#clickbox").show();
 		$("#searchresults").show();
 		$("#breadcrumbs-box").show();
-		$("#searchUIToggle").text("<<")
 		$("#search").width("55%");
 	}
 	
 }
 
+function goHome()
+{
+	clearSearch();
+	$("#home").show();
+	
+}
+
+function clearSearch()
+{
+	clearMarkers();
+	bclist = $("#breadcrumb-list li").remove();
+}
+
+function goSearch(category)
+{
+	clearSearch();
+	$("#home").hide();
+	filterCategory(category);
+}
+
+  
 // Sets the map on all markers in the array.
 function setMapOnAll(map) {
   for (var i = 0; i < markers.length; i++) {
@@ -132,5 +152,5 @@ function returnTo(category)
 
 $(document).ready(function()
 {
-	filterCategory("Salud")
+	//filterCategory("Salud")
 })
