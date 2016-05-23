@@ -16,7 +16,7 @@ function toggleSearchUI()
 		$("#clickbox").show();
 		$("#searchresults").show();
 		$("#breadcrumbs-box").show();
-		$("#search").width("55%");
+		$("#search").width("40%");
 	}
 	
 }
@@ -98,7 +98,7 @@ function searchProfession(profession)
 	.done (function ( results) {
 		var map = document.getElementById('map').gMap;
 		bounds = new google.maps.LatLngBounds();
-		clearMarkers();
+		deleteMarkers();
 		$("#searchresults-list").empty();
 		$.each(results, function(i, professional){
 			$("#searchresults-list").append( '<li class="search-item" id="sr-' + professional._id + '" onmouseout="setMarkersAnimation(\'sr-' + professional._id + '\', false)" onmouseover="setMarkersAnimation(\'sr-' + professional._id + '\', true)" :> <a>' +professional.name + " " + professional.lastName+'</a></li>');
